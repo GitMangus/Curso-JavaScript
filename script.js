@@ -100,7 +100,7 @@ switch(operacion) {
 
 //Primer entrega: Adivinar mi personaje preferido de la película "El viaje de Chihiro" utilizando el ciclo While
 
-let entrada = prompt("Ingresar un personaje").toUpperCase();
+/*let entrada = prompt("Ingresar un personaje").toUpperCase();
 
 while (entrada != "HAKU") {
     if (entrada == "CHIHIRO"){
@@ -118,4 +118,150 @@ while (entrada != "HAKU") {
     }
 }
 
-alert ("¡Acertaste! Mi personaje preferido es " + entrada)
+alert ("¡Acertaste! Mi personaje preferido es " + entrada)*/
+
+//SIMULADOR. Devolver el signo según la fecha ingresada (sin utilizar función)
+
+/*Del 21 de marzo al 20 de abril	Aries
+Del 21 de abril al 21 de mayo	Tauro
+Del 22 de mayo al 21 de junio	Géminis
+Del 22 de junio al 22 de julio	Cáncer
+Del 23 de julio al 23 de agosto	Leo
+Del 24 de agosto al 23 de septiembre	Virgo
+Del 24 de septiembre al 23 octubre	Libra
+Del 24 de octubre al 22 de noviembre	Escorpión
+Del 23 de noviembre al 21 de diciembre	Sagitario
+Del 22 de diciembre al 20 de enero	Capricornio
+Del 21 de enero al 18 de febrero	Acuario
+Del 19 de febrero al 20 de marzo	Piscis*/
+
+/*
+    let dia = parseInt(prompt("Para calcular su signo por favor ingrese su día de nacimiento"))
+    let mes = parseInt(prompt("Ahora ingrese su mes de nacimiento"))
+
+    if ((dia >= 21 && mes == 3) || (dia <= 20 && mes == 4)) {
+        alert ('Aries');
+    } else if ((dia >= 21 && mes == 4) || (dia <= 21 && mes == 5)) {
+        alert ('Tauro');
+    } else if ((dia >= 22 && mes == 5) || (dia <= 21 && mes == 6)) {
+        alert ('Geminis');
+    } else if ((dia >= 22 && mes == 6) || (dia <= 22 && mes == 7)) {
+        alert ('Cancer');
+    } else if ((dia >= 23 && mes == 7) || (dia <= 23 && mes == 8)) {
+        alert ('Leo');
+    } else if ((dia >= 24 && mes == 8) || (dia <= 23 && mes == 9)) {
+        alert ('Virgo');
+    } else if ((dia >= 24 && mes == 9) || (dia <= 23 && mes == 10)) {
+        alert ('Libra');
+    } else if ((dia >= 24 && mes == 10) || (dia <= 22 && mes == 11)) {
+        alert ('Escorpio');
+    } else if ((dia >= 23 && mes == 11) || (dia <= 21 && mes == 12)) {
+        alert ('Sagitario');
+    } else if ((dia >= 22 && mes == 12) || (dia <= 20 && mes == 1)) {
+        alert ('Capricornio');
+    } else if ((dia >= 21 && mes == 1) || (dia <= 18 && mes == 2)) {
+        alert ('Acuario');
+    } else if ((dia >= 19 && mes == 2) || (dia <= 20 && mes == 3)) {
+        alert ('Piscis');
+    } else {
+       alert ('No pudimos resolver tu consulta. Intenta nuevamente')
+    }*/
+
+//SIMULADOR. Devolver el signo según la fecha ingresada (utilizando una función)
+
+let dia = parseInt(prompt("Para calcular su signo por favor ingrese su día de nacimiento:"))
+let mes = parseInt(prompt("Ahora ingrese su mes de nacimiento"))
+function calcularSigno(dia, mes) {
+
+    switch (mes) {
+        case 1:
+            if (dia <= 20) {
+                signo = "Su signo es Capricornio";
+            } else {
+                signo = "Su signo es Acuario";
+            }
+            break;
+        case 2:
+            if (dia <= 18) {
+                signo = "Su signo es Acuario";
+            } else {
+                signo = "Su signo es Piscis";
+            }
+            break;
+        case 3:
+            if (dia <= 20) {
+                signo = "Su signo es Piscis";
+            } else {
+                signo = "Su signo es Aries";
+            }
+            break;
+        case 4:
+            if (dia <= 20) {
+                signo = "Su signo es Aries";
+            } else {
+                signo = "Su signo es Tauro";
+            }
+            break;
+        case 5:
+            if (dia <= 21) {
+                signo = "Su signo es Tauro";
+            } else {
+                signo = "Su signo es Géminis";
+            }
+            break;
+        case 6:
+            if (dia <= 21) {
+                signo = "Su signo es Géminis";
+            } else {
+                signo = "Su signo es Cáncer";
+            }
+            break;
+        case 7:
+            if (dia <= 22) {
+                signo = "Su signo es Cáncer";
+            } else {
+                signo = "Su signo es Leo";
+            }
+            break;
+        case 8:
+            if (dia <= 23) {
+                signo = "Su signo es Leo";
+            } else {
+                signo = "Su signo es Virgo";
+            }
+            break;
+        case 9:
+            if (dia <= 23) {
+                signo = "Su signo es Virgo";
+            } else {
+                signo = "Su signo es Libra";
+            }
+            break;
+        case 10:
+            if (dia <= 23) {
+                signo = "Su signo es Libra";
+            } else {
+                signo = "Su signo es Escorpio";
+            }
+            break;
+        case 11:
+            if (dia <= 22) {
+                signo = "Su signo es Escorpio";
+            } else {
+                signo = "Su signo es Sagitario";
+            }
+            break;
+        case 12:
+            if (dia <= 21) {
+                signo = "Su signo es Sagitario";
+            } else {
+                signo = "Su signo es Capricornio";
+            }
+            break;
+        default:
+            return ("No pudimos realizar tu consulta")
+    }
+    alert(signo);
+}
+
+calcularSigno(dia, mes)

@@ -259,7 +259,7 @@ function calcularSigno(dia, mes) {
             }
             break;
         default:
-            return ("No pudimos realizar tu consulta")
+            alert ("No pudimos realizar tu consulta")
     }
     alert(signo);
 }

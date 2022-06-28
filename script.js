@@ -168,7 +168,7 @@ Del 19 de febrero al 20 de marzo	Piscis*/
     }*/
 
 //SIMULADOR. Devolver el signo según la fecha ingresada (utilizando una función)
-
+/*
 let dia = parseInt(prompt("Para calcular su signo por favor ingrese su día de nacimiento:"))
 let mes = parseInt(prompt("Ahora ingrese su mes de nacimiento"))
 function calcularSigno(dia, mes) {
@@ -265,3 +265,33 @@ function calcularSigno(dia, mes) {
 }
 
 calcularSigno(dia, mes)
+*/
+
+//Objeto  (crearlos con const y no con let por temas de seguridad)
+
+const gato = {
+nombre: "Mérida",
+edad: 4,
+peso: 3,
+raza: "Gato común europeo"
+}
+
+console.log(gato)  //Veo todas las propiedades del objeto gato
+console.log(gato.raza)    //Utilizar el atributo . para visualizar una propiedad del objeto llamado
+console.log(gato["raza"])  //Otra forma de visualizar una propiedad
+console.log(gato.raza, gato.nombre)  //Para ver más de una propiedad
+console.table(gato)   //Veo todas las propiedades del objeto gato en forma de tabla
+
+gato.color = "blanco"   //Creo una nueva propiedad
+console.log(gato) 
+
+//Funciones constructoras para crear objetos con las mismas propiedades pero distintos valores
+
+function Gato (nombre, edad, peso, raza) {
+    this.nombre = nombre
+    this.edad = edad
+    this. peso = peso
+    this.raza = raza
+}
+
+const gato1 = new Gato ("Bob", 5, 4, "Gato común europeo") //Creo un objeto nuevo gato1

@@ -267,7 +267,7 @@ function calcularSigno(dia, mes) {
 calcularSigno(dia, mes)
 */
 
-//Objeto  (crearlos con const y no con let por temas de seguridad)
+//Objeto  (crearlos con const y no con let por temas de seguridad) : esto sería un objeto Literal o Real (no se creó mediante clase o función constructora)
 
 const gato = {
 nombre: "Mérida",
@@ -292,6 +292,46 @@ function Gato (nombre, edad, peso, raza) {
     this.edad = edad
     this. peso = peso
     this.raza = raza
+    this.comunicarse = () => console.log(`Meow, soy ${this.nombre}`)   //Método
 }
 
 const gato1 = new Gato ("Bob", 5, 4, "Gato común europeo") //Creo un objeto nuevo gato1
+const gato2 = new Gato ("Fígaro", 6, 4, "Gato común europeo")
+
+//Método: acción propia del objeto
+// Llamo al objeto p/ejecutar su método
+
+gato1.comunicarse()
+gato2.comunicarse()
+
+//CLASES: se utilizan para crear objetos de una forma más limpia (diferencio propiedades de métodos) USAR ESTA FORMA
+
+class Producto {
+    constructor (id, nombre, marca, precio, stock){
+        this.id = id
+        this.nombre = nombre
+        this.marca = marca
+        this.precio = precio
+        this.stock = stock
+    }
+    //Ingresar 1.cantidadAumento   (Acá va el método)
+    aumentarPrecio(porcentajeAumento = 1){   //El 1 es un valor por defecto para que no me salga undefined  (Valor por defecto de la función, valor neutro)
+        this.precio *= porcentajeAumento   //this.precio = this.precio * porcentajeAumento   (esto es lo mismo, la primer forma simplifica código "Sintaxis Sugar")
+    }
+
+    disminuirStock(nuevoStock = 0){
+        this.stock -= nuevoStock
+    }
+
+    aumentarStock(nuevoStock = 0){
+        this.stock +=nuevoStock
+    }
+}
+
+const producto1 = new Producto (1, "Yerba", "La yerbita", 100, 10)
+console.log (producto1)
+console.log (producto1.precio)
+producto1.aumentarPrecio(1.10)
+console.log (producto1.precio)
+producto1.disminuirStock(5)
+console.log (producto1.stock)

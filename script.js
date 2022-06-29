@@ -268,12 +268,12 @@ calcularSigno(dia, mes)
 */
 
 //Objeto  (crearlos con const y no con let por temas de seguridad) : esto sería un objeto Literal o Real (no se creó mediante clase o función constructora)
-
+/*
 const gato = {
-nombre: "Mérida",
-edad: 4,
-peso: 3,
-raza: "Gato común europeo"
+    nombre: "Mérida",
+    edad: 4,
+    peso: 3,
+    raza: "Gato común europeo"
 }
 
 console.log(gato)  //Veo todas las propiedades del objeto gato
@@ -283,20 +283,20 @@ console.log(gato.raza, gato.nombre)  //Para ver más de una propiedad
 console.table(gato)   //Veo todas las propiedades del objeto gato en forma de tabla
 
 gato.color = "blanco"   //Creo una nueva propiedad
-console.log(gato) 
+console.log(gato)
 
 //Funciones constructoras para crear objetos con las mismas propiedades pero distintos valores
 
-function Gato (nombre, edad, peso, raza) {
+function Gato(nombre, edad, peso, raza) {
     this.nombre = nombre
     this.edad = edad
-    this. peso = peso
+    this.peso = peso
     this.raza = raza
     this.comunicarse = () => console.log(`Meow, soy ${this.nombre}`)   //Método
 }
 
-const gato1 = new Gato ("Bob", 5, 4, "Gato común europeo") //Creo un objeto nuevo gato1
-const gato2 = new Gato ("Fígaro", 6, 4, "Gato común europeo")
+const gato1 = new Gato("Bob", 5, 4, "Gato común europeo") //Creo un objeto nuevo gato1
+const gato2 = new Gato("Fígaro", 6, 4, "Gato común europeo")
 
 //Método: acción propia del objeto
 // Llamo al objeto p/ejecutar su método
@@ -307,7 +307,7 @@ gato2.comunicarse()
 //CLASES: se utilizan para crear objetos de una forma más limpia (diferencio propiedades de métodos) USAR ESTA FORMA
 
 class Producto {
-    constructor (id, nombre, marca, precio, stock){
+    constructor(id, nombre, marca, precio, stock) {
         this.id = id
         this.nombre = nombre
         this.marca = marca
@@ -315,23 +315,206 @@ class Producto {
         this.stock = stock
     }
     //Ingresar 1.cantidadAumento   (Acá va el método)
-    aumentarPrecio(porcentajeAumento = 1){   //El 1 es un valor por defecto para que no me salga undefined  (Valor por defecto de la función, valor neutro)
+    aumentarPrecio(porcentajeAumento = 1) {   //El 1 es un valor por defecto para que no me salga undefined  (Valor por defecto de la función, valor neutro)
         this.precio *= porcentajeAumento   //this.precio = this.precio * porcentajeAumento   (esto es lo mismo, la primer forma simplifica código "Sintaxis Sugar")
     }
 
-    disminuirStock(nuevoStock = 0){
+    disminuirStock(nuevoStock = 0) {
         this.stock -= nuevoStock
     }
 
-    aumentarStock(nuevoStock = 0){
-        this.stock +=nuevoStock
+    aumentarStock(nuevoStock = 0) {
+        this.stock += nuevoStock
     }
 }
 
-const producto1 = new Producto (1, "Yerba", "La yerbita", 100, 10)
-console.log (producto1)
-console.log (producto1.precio)
+const producto1 = new Producto(1, "Yerba", "La yerbita", 100, 10)
+console.log(producto1)
+console.log(producto1.precio)
 producto1.aumentarPrecio(1.10)
-console.log (producto1.precio)
+console.log(producto1.precio)
 producto1.disminuirStock(5)
-console.log (producto1.stock)
+console.log(producto1.stock)
+*/
+
+/*
+//ARRAY: tipo de dato utilizado para almacenar valores en forma de listas. El primer elemento tiene un índice 0 y el último n-1
+
+const IVA = 1.21 //Con mayúscula porque es una variable que no se modifica nunca
+const array = [] //Con minúscula porque es una variable que se modifica -- Array vacío, ej en un carrito de compras al inicio
+const mochila = ["libros", "cartuchera", "cuadernillo", "billetera", "celular"]
+
+console.log(mochila) //Accedo a los elementos del array y en la consola me muestra también su índice y longitud
+console.log(mochila[3]) //Accedo a un elemento del array según su índice, "billetera"
+console.log(mochila[10]) //Debería tirar error porque no existe el elemento en esa posición, sin embargo Js me tira undefined
+mochila[2] = "botellita" //Reemplazo el valor del elemento en esa posición
+console.log(mochila[2])
+mochila[10] = "cuadernillo" //Puedo crear un espacio nuevo en la posición que yo quiera y se van a crear espacios vacíos entre el último elemento que coloqué al principio y el elemento que acabo de agregar
+console.log(mochila) //Ahora la longitud de mi array aumentó a 11
+
+//Para recorrer un array utilizo un ciclo for. Simplemente es para mostrar todos los elementos del mismo, uno por uno.
+
+for (let i = 0; i < 11; i++) {
+    console.log(mochila[i]) //i=0,1,...10
+}
+
+console.table(mochila) //Mejor visualizado con una tabla
+
+//Recorro un array en su totalidad cuya longitud puede variar, ej en un carrito que no sé cuántos productos pueda llegar a meter
+
+for (let i = 0; i < mochila.length; i++) {
+    console.log(mochila[i])
+}
+*/
+
+//Métodos de arrays
+/*
+const carrito = []
+
+carrito.push("remera")   //.push agrega un elemento al final del arreglo
+console.log(carrito)
+carrito.unshift("buzo")  //.unshift agrega un elemento al comienzo del arreglo. Genera un gasto de recursos al hacer que todos los demás elementos existentes cambien su índice para "moverse" de lugar
+console.log(carrito)
+carrito.shift() // .shift elimina el primer elemento del array
+console.log(carrito)
+carrito.pop() //.pop elimina el último elemento del array
+console.log(carrito)
+carrito.push("remera")
+carrito.push("buzo")
+carrito.push("pantalón")          
+console.log(carrito)   // ["remerea,"buzo","pantalón"]
+carrito.splice(1,1)   //Elimina uno o más elementos de un array dada su posición. Me sirve cuando quiero eliminar algún elemento del medio y me ahorro tener que borrar de a uno con los métodos anteriores
+console.log(carrito)  //Quiero eliminar solamente el elemento buzo que tiene índice 1. (primer número indica índice, segundo número indica la cant.de elementos a eliminar desde esa posición)
+*/
+//Buscador para que el usuario pueda borrar datos del array
+
+//const carrito = ["remera", "buzo", "pantalón", "campera"]
+/*
+let productoEliminar = prompt("Ingrese el producto a eliminar").toLowerCase()
+
+let indice = carrito.indexOf(productoEliminar)  //Devuelve el índice del elemento o -1 si no lo encuentra
+
+if (indice >= 0) {
+    carrito.splice(indice, 1) //Elimino según el índice del producto ingresado y elimino solamente ese producto
+} else {
+    alert("Producto no encontrado")
+}
+
+console.log(carrito)*/
+//console.log(carrito.join("-"))
+
+
+//Método concat combina dos arrays y los junta 
+/*
+const perros = ["Timoteo", "Pocha"]
+const gatos = ["Mérida", "Bobby", "Duquesa", "Sansa", "Oliver", "Oscurita", "Clarita", "Sawa", "Kitty", "Kírara"]
+
+const mascotas = perros.concat(gatos)  //A perros le agrego gatos, por eso aparecen los gatos al final
+console.log(mascotas)
+
+//Quiero consultar el array sin modificarlo: utilizo slice - se maneja con índice a consultar, índice final no incluído. Ahora quiero ver a Duquesa, Sansa y Oliver (recordar que hice un concat previamente)
+console.log(mascotas.slice(4, 7))
+
+//Para saber si un elemento está incluído o no en un arreglo utilizo includes(). Devuelve true o false
+console.log(mascotas.includes("Mérida"))  //Devuelve true
+console.log(mascotas.includes("Leia")) //Devuelve false
+
+//Utilizar el método slice para hacer copias de arrays y luego reverse para invertir el orden de los elementos ya que reverse es un método destructivo (modifica los índices)
+//const array1 = array2.slice(1,5)   De esta forma
+
+class Alimento {
+    constructor(id, nombre, marca, precio, stock) {
+        this.id = id
+        this.nombre = nombre
+        this.marca = marca
+        this.precio = precio
+        this.stock = stock
+    }
+
+    aumentarPrecio(porcentaje) {       //Método
+        this.precio *= porcentaje
+    }
+}
+
+const alimento1 = new Alimento(1, "Fideos", "Matarazzo", 300, 10)
+const alimento2 = new Alimento(2, "Arroz", "Ala", 200, 15)
+const alimento3 = new Alimento(3, "Lentejas", "Lentejitas", 100, 20)
+
+const alimentos = [alimento1, alimento2, alimento3]   //Tengo mis productos guardados en un array de alimentos
+
+console.table(alimentos)    //Visualmente mis alimentos se ven ordenados en una tabla como en una base de datos
+
+//Para recorrer un array de objetos se utiliza un for...of   (por cada producto del array hace un ciclo for)
+
+/*for (let alimentoArray of alimentos) {
+    console.log(alimentoArray)
+}*/
+
+/*
+for (let alimentoArray of alimentos) {
+    alimentoArray.aumentarPrecio(1.20)   //A cada elemento del array le aumento el precio un 20%
+}
+
+console.log(alimentos)
+*/
+
+
+//Entrega de ARRAYS
+
+//Creo un objeto Persona con sus propiedades y un método
+
+class Persona {
+    constructor (nombre, apellido, edad, sexo, tipoFamiliar){
+    this.nombre= nombre
+    this.apellido = apellido
+    this.edad = edad
+    this.sexo = sexo
+    this.tipoFamiliar = tipoFamiliar
+    }
+    
+    //Método saludar
+    
+    saludar = () => console.log (`Hola, soy el/la ${this.tipoFamiliar} de Flor`)
+    }
+    
+    //Creo los objetos familiares con sus características
+    
+    const persona1 = new Persona ("Pepe", "Pérez", 60 , "masculino" , "padre")
+    const persona2 = new Persona ("Pepa", "Pérez", 50 , "femenino" , "madre")
+    const persona3 = new Persona ("Pepita", "Pérez", 20 , "femenino" , "hermana")
+    const persona4 = new Persona ("Pepito", "Pérez", 15 , "masculino" , "hermano")
+    
+    //Veo todo en consola
+    
+    console.log(persona1)
+    console.log(persona2)
+    console.log(persona3)
+    console.log(persona4)
+    persona1.saludar()
+    persona2.saludar()
+    persona3.saludar()
+    persona4.saludar()
+    
+    //Creo un array de objetos
+    
+    const familiares = [persona1, persona2, persona3, persona4]
+                        //0         1         2         3   (índices)
+    
+    //Accedo a todos los elementos del array
+    console.log (familiares)
+    
+    //Accedo al elemento en la segunda posición (índice 1)
+    console.log(familiares[1])
+    
+    //Creo un ciclo para mostrar todos los familiares 
+    
+    for (let i = 0; i < familiares.length; i++) {
+        console.log(familiares[i]) 
+    }
+    
+    //Utilizo el método .push para agregar un familiar (objeto)
+    
+    familiares.push({nombre:"Lala", apellido:"Pérez", edad: 5, sexo: "femenino" , tipoFamiliar: "hermana"})
+    
+    //Muestro en consola una tabla con toda la info de los familiares
+    console.table(familiares)

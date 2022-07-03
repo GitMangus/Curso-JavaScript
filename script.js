@@ -632,5 +632,5 @@ console.log(Math.pow(5,3)) //Exponencia
 console.log(Math.round(5.5)) //Redondeo al entero más cercano
 */
 
-import {peliculas, cupones} from './VillageCines.js'
+
 

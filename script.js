@@ -520,15 +520,117 @@ class Persona {
     console.table(familiares)
 */
 
-    //After de Pokemon
+//After de Pokemon
+/*
+const pikachu1 = new Pikachu("Pika pika", "Eléctrico", 22, 10)
+const charmander1 = new Charmander("Fueguito", "Fuego", 20, 8)
+const eevee1 = new Eevee("Cual", "Normal", 12, 7)
 
-    const pikachu1 = new Pikachu ("Pika pika", "Eléctrico", 22, 10)
-    const charmander1 = new Charmander ("Fueguito", "Fuego", 20, 8)
-    const eevee1 = new Eevee ("Cual", "Normal", 12, 7)
+pikachu1.impactrueno(charmander1) //Fueguito tiene 10 de vida
+charmander1.llamarada(pikachu1) //Pika pika tiene 14 de vida
+pikachu1.impactrueno(charmander1) //Fueguito perdió
+eevee1.tackle(pikachu1) //Pika pika tiene 7 de vida
+pikachu1.impactrueno(eevee1) //Cual tiene 2 de vida
+eevee1.tackle(pikachu1) //Pika pika perdió
+*/
 
-    pikachu1.impactrueno(charmander1) //Fueguito tiene 10 de vida
-    charmander1.llamarada(pikachu1) //Pika pika tiene 14 de vida
-    pikachu1.impactrueno(charmander1) //Fueguito perdió
-    eevee1.tackle(pikachu1) //Pika pika tiene 7 de vida
-    pikachu1.impactrueno(eevee1) //Cual tiene 2 de vida
-    eevee1.tackle(pikachu1) //Pika pika perdió
+//Funciones de orden superior: no sé qué hacen internamente. Me importa qué piden y qué retornan (output y/o función)
+
+/*function asignarOperacion (operacion) {  //No es lo más óptimo
+    if (operacion == "+"){
+        return (a,b) => a + b
+    } else if (operacion == "-"){
+        return (a,b) => a - b
+    }
+}
+
+const suma = asignarOperacion ("+")
+const resta = asignarOperacion ("-")
+
+console.log(suma(5,10))
+console.log(resta(5,10))
+
+
+//Función como parámetro: me ahorro líneas de código y lo hago más simple
+const suma = (a,b) => a + b
+
+function mostrarSuma (resultado){
+    console.log(resultado)
+}
+
+mostrarSuma(suma(5,10)) // Acá tengo una función dentro de los parámetros de la función mostrarSuma
+
+function mostrarReceta(ingrediente1, ingrediente2, ingrediente3){
+    console.log(`Se necesitan 250grs de ${ingrediente1}`)
+    console.log(`Se necesitan 500grs de ${ingrediente2}`)
+    console.log(`Se necesitan 150grs de ${ingrediente3}`)
+    console.log(`Juntar todos los ingredientes en un recipiente y hornear por 50min`)
+}
+
+mostrarReceta(prompt("Ingrese el ingrediente 1"), prompt("Ingrese el ingrediente 2"), prompt("Ingrese el ingrediente 3"))*/
+/*
+class Animal {                 //Creo una clase
+    constructor(id, nombre, especie, color, peso) {
+        this.id = id
+        this.nombre = nombre
+        this.especie = especie
+        this.color = color
+        this.peso = peso
+    }
+}
+
+const animal1 = new Animal(1, "Firulais", "perro", "marrón", 15)        //Creo varios objetos animales
+const animal2 = new Animal(2, "Manuelita", "tortuga", "verde", 5)
+const animal3 = new Animal(3, "Flipper", "delfín", "gris", 200)
+const animal4 = new Animal(4, "Simba", "león", "marrón", 100)
+
+const animales = [animal1, animal2, animal3, animal4]   //Guardo los objetos en un array
+
+//Métodos de arrays
+
+//forEach() es un reemplazo del for...of. Sirve para mostrar diversos valores, diversos cálculos. Es asincrónico y más óptimo.
+animales.forEach(animal => {
+    console.table(animal)
+})
+
+//Puedo consultar por el objeto y el índice al mismo tiempo de la siguiente manera: animales.forEach(animal, indice) => {console.log(indice)  console.log(animal)})
+
+//find() dada una característica me devuelve el primer objeto que cumpla con la condición que yo le indico. (Itera y entrega lo primero donde haya una coincidencia) Find es internamente un while. Es un buscador que se utliza mucho en sitios web.
+
+console.log(animales.find(animal => animal.nombre === "Manuelita"))
+console.log(animales.find(animal => animal.peso > 20))
+console.log(animales.find(animal => animal.peso >20 && animal.nombre === "Simba"))  //Con que una de las opciones sea V, me da falso. Tiene que cumplir las dos para que me retorne a Simba por el operador lógico &&
+console.log(animales.find(animal => animal.peso >300 && animal.nombre === "Simba")) //Si no encuentra el objeto me devuelve undefined
+
+//filter() devuelve todos los objetos que cumplan con la condición. Si ninguno cumple con la condición retorna un array vacío
+
+console.log(animales.filter(animal => animal.peso > 20))
+
+//some() si existe un objeto que cumple con la condición retorna True, si no existe retorna False
+
+console.log(animales.some(animal => animal.color === "rojo"))
+
+//Map() genera un nuevo array con las condiciones que yo agrego como parámetros. Modifico el array, retorno un nuevo array. No modifico el original.
+
+const animalesPeso = animales.map(animal => animal = animal.peso) //Me devuelve un array con todos los pesos únicamente. CUIDADO! Estoy asignando un valor. Lo termino guardando en un nuevo array animalesPeso (en este caso)
+
+console.log(animalesPeso)
+
+//reduce(): simplificación de varios números a un solo valor, en una línea
+
+console.log(animalesPeso.reduce((acumulador, siguiente) => acumulador + siguiente, 0))  //Suma, valor inicial de acumulador igual a 0
+console.log(animalesPeso.reduce((acumulador, siguiente) => acumulador * siguiente, 1))  //Multiplicación, valor inicial de acumulador igual a 1
+
+//sort() ordenar un array según un criterio. (Los nombres, por ej, se ordenan alfabéticamente. Los números pueden irdenarse de menor a mayor, etc). Es un método destructivo!! Modifico el array original.
+
+const ordenamientoMenorAMayor = console.log(animalesPeso.sort((num1,num2) => num1 - num2))
+const ordenamientoMayorAMenor = console.log(animalesPeso.sort((num1,num2) => num2 - num1))
+
+//Objeto Math (para cálculos matemáticos)
+
+console.log(Math.pow(5,3)) //Exponencia
+console.log(Math.round(5.5)) //Redondeo al entero más cercano
+*/
+
+import {peliculas, cupones} from './VillageCines.js'
+

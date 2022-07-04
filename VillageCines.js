@@ -42,6 +42,18 @@ class PeliculaCarrito {
     }
 }
 
+//Buscador de películas en la página
+
+const buscadorPeliculas = (peli) => {
+    const peliculasEncontradas = peliculas.filter(p => p.nombre.includes(peli)) //Filtro de películas y lo almaceno en la variable
+    if (peliculasEncontradas.length == 0){
+        return "La película especificada no se encuentra en la página"
+    }
+
+    return peliculasEncontradas
+}
+
+//Función para agregar películas al carrito
 const agregarPeliACarrito = (id, cantidad = 1) => {
     const peli = peliculas.find(p => p.id == id)   //p = película, con find busco si existe la película
     if (!peli) {
@@ -77,10 +89,6 @@ const eliminarPeliDelCarrito = (id, cantidad = 1) => {
     return carrito
 }
 
-//console.table(eliminarPeliDelCarrito(1, 1)) //Elimino 1
-//console.table(eliminarPeliDelCarrito(5, 1)) //Elimino 1
-//console.table(eliminarPeliDelCarrito(8, 1)) //No existe esa peli en el carrito, me tira el msj de error
-
 //Agrego cupon de descuento
 
 const agregarCupon = (cupon) => {
@@ -103,20 +111,14 @@ const precioTotal = () => {
     return `Total: ${suma}`
 }
 
-//Buscador de películas
 
-const buscadorPeliculas = (peli) => {
-    const peliculasEncontradas = peliculas.filter(p => p.nombre.includes(peli)) //Filtro de películas y lo almaceno en la variable
-    if (peliculasEncontradas.length == 0){
-        return "La película especificada no se encuentra en la página"
-    }
-
-    return peliculasEncontradas
-}
+//Visualizaciones por consola
 
 const inputPeli = prompt ("Ingrese el nombre la película que desea buscar").toUpperCase()
 console.table(buscadorPeliculas(inputPeli))
 console.table(agregarPeliACarrito(1, 2)) //Agrego a Thor para 2 personas
+//console.table(eliminarPeliDelCarrito(1, 1)) //Elimino 1 
+//console.table(eliminarPeliDelCarrito(8, 1)) //No existe esa peli en el carrito, me tira el msj de error
 const cupon = prompt("Ingrese su cupon de descuento").toUpperCase()
 console.table(agregarCupon(cupon))
 console.table(precioTotal())

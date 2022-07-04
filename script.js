@@ -657,6 +657,7 @@ divParrafos.innerHTML += '<p>Hola, soy el último párrafo</p>' //El = pisa todo
 
 //Ejemplo donde creo todo el código en JS.
 
+/*
 class Persona {
     constructor(id, nombre, apellido, edad, sueldo) {
         this.id = id
@@ -703,3 +704,4 @@ pepe.remove() //forma 1. elimino consultando directamente el elemento
 
 divPersonas.removeChild(document.getElementById('persona2')) //forma 2. remueve un elemento hijo dado su padre
 //Es mejor utilizar esta forma ya que los productos no van a tener id para que no sea pesado. Consulto por el padre y elimino por la posición.
+*/

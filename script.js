@@ -632,5 +632,74 @@ console.log(Math.pow(5,3)) //Exponencia
 console.log(Math.round(5.5)) //Redondeo al entero más cercano
 */
 
+//Clase de DOM : 3 formas de ingresar a un elemento
+/*
+console.log(document.getElementById(`parrafo1`))  //Devuelve el elemento según su id que debe ser único - Recomendado utilizar este, es más simple
+console.log(document.getElementsByClassName(`parrafos`)[0].children[0]) //Devuelve un HTML Collection con cada uno de los párrafos. Accedo mediante la clase mediante el padre
+console.log(document.getElementsByTagName('p')[0]) //Accedo mediante el tag. En este caso también según el índice para especificar cuál de todos quiero. Muy raro de utilizar.
+
+//Modificar nodos
+
+const parrafo4 = document.getElementById('parrafo4') //Lo guardo en una constante porque es un objeto que se va a modificar
+parrafo4.innerText = "Hola coders, buenas noches" //Insertar texto en una etiqueta p
 
 
+//Creo un párrafo en JS 
+const divParrafos = document.getElementsByClassName('parrafos')[0]
+//Consulto por todos los elementos que contengan la clase parrafos
+//[0]: Consulto el primer párrafo del HTML Collection por su índice
+//Luego lo guardo en una constante para visualizarlo como un objeto y puedo ejecutar alguna de sus propiedades
+
+
+divParrafos.innerHTML += '<p>Hola, soy el último párrafo</p>' //El = pisa todos los datos anteriores. Para que no lo haga pongo += . Creo un nuevo párrafo
+//innerHTML: Esta es una propiedad que me permite insertar código HTML desde JS. Esto sirve para crear código de forma dinámica
+*/
+
+//Ejemplo donde creo todo el código en JS.
+
+class Persona {
+    constructor(id, nombre, apellido, edad, sueldo) {
+        this.id = id
+        this.nombre = nombre
+        this.apellido = apellido
+        this.edad = edad
+        this.sueldo = sueldo
+    }
+}
+
+const persona1 = new Persona(1, "Pepe", "Pérez", 31, 10000)
+const persona2 = new Persona(2, "Pepa", "Pérez", 21, 15000)
+const persona3 = new Persona(3, "Rosa", "Pérez", 25, 20000)
+
+const personas = [persona1, persona2, persona3]
+
+const divPersonas = document.getElementById('divPersonas')
+
+personas.forEach(persona => {   //Recorre el array. Con el id puedo diferenciar cada párrafo
+    divPersonas.innerHTML += `
+    <div class="stylePersonas" id="persona${persona.id}">  
+        <p>Nombre: ${persona.nombre}</p>
+        <p>Apellido: ${persona.apellido}</p>
+        <p>Edad: ${persona.edad}</p>
+        <p>Sueldo: ${persona.sueldo}</p>
+    </div>
+    
+    `
+})
+
+//Otra forma de crear código HTML (elementos)
+
+const parrafo = document.createElement("p") //Creo una etiqueta p
+parrafo.innerText = "Hola, qué tal?" //Agrego el texto
+parrafo.id = "parrafo1" //Le creo un id
+
+document.body.append(parrafo) 
+
+//2 Formas de eliminar elementos
+
+const pepe = document.getElementById('persona1')
+
+pepe.remove() //forma 1. elimino consultando directamente el elemento
+
+divPersonas.removeChild(document.getElementById('persona2')) //forma 2. remueve un elemento hijo dado su padre
+//Es mejor utilizar esta forma ya que los productos no van a tener id para que no sea pesado. Consulto por el padre y elimino por la posición.

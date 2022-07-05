@@ -1,3 +1,5 @@
+/*
+
 //Creo la clase Película con todas sus propiedades
 class Pelicula {
     constructor(id, nombre, idioma, precio) {
@@ -123,4 +125,30 @@ const cupon = prompt("Ingrese su cupon de descuento").toUpperCase()
 console.table(agregarCupon(cupon))
 console.table(precioTotal())
 
+*/
+
+//Entrega DOM
+
+const titulo = document.getElementById("titulo").innerHTML  //Consulto el elemento
+console.log(titulo)
+
+document.getElementById("titulo").innerHTML = "<h2>Village Cines</h2>" //Reemplazo el contenido (asigno otro valor en este caso)
+
+const info = document.getElementById("info")
+
+info.classList.add("row", "row-cols-1", "row-cols-md-3", "g-4")
+console.log(info)
+
+peliculas.forEach(pelicula => {
+    const fila = document.createElement('div')  //Creo un div
+    fila.classList("col")
+    fila.innerHTML = `
+    <div class="card h-100">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+    </div>
+    `
+})
 

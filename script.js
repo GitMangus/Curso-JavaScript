@@ -653,11 +653,11 @@ const divParrafos = document.getElementsByClassName('parrafos')[0]
 
 divParrafos.innerHTML += '<p>Hola, soy el último párrafo</p>' //El = pisa todos los datos anteriores. Para que no lo haga pongo += . Creo un nuevo párrafo
 //innerHTML: Esta es una propiedad que me permite insertar código HTML desde JS. Esto sirve para crear código de forma dinámica
-*/
+
 
 //Ejemplo donde creo todo el código en JS.
 
-/*
+
 class Persona {
     constructor(id, nombre, apellido, edad, sueldo) {
         this.id = id
@@ -705,3 +705,4 @@ pepe.remove() //forma 1. elimino consultando directamente el elemento
 divPersonas.removeChild(document.getElementById('persona2')) //forma 2. remueve un elemento hijo dado su padre
 //Es mejor utilizar esta forma ya que los productos no van a tener id para que no sea pesado. Consulto por el padre y elimino por la posición.
 */
+//+= agrega contenido; = lo reemplaza porque es un operador de asignación

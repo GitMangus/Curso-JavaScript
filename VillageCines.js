@@ -129,26 +129,57 @@ console.table(precioTotal())
 
 //Entrega DOM
 
+const peliculas = [
+    { id: 1, nombre: "THOR: AMOR Y TRUENO", idioma: "subtitulado", img: "thor.webp", precio: 1040 },
+    { id: 2, nombre: "MINIONS: NACE UN VILLANO", idioma: "español", img: "minions.jpg", precio: 1040 },
+    { id: 3, nombre: "LIGHTYEAR", idioma: "español", img: "lightyear.webp", precio: 1040 },
+    { id: 4, nombre: "JURASSIC WORLD: DOMINIO", idioma: "español", img: "jurassic.jpg", precio: 1040 },
+    { id: 5, nombre: "TOP GUN: MAVERICK", idioma: "subtitulado", img: "topGun.jpg", precio: 1040 },
+    { id: 6, nombre: "DOCTOR STRANGE EN EL MULTIVERSO DE LA LOCURA", idioma: "subtitulado", img: "doctorStrange.jpg", precio: 1040 },
+    { id: 7, nombre: "SONIC LA PELICULA", idioma: "español", img: "sonic.jpg", precio: 1040 }
+]
+
 const titulo = document.getElementById("titulo").innerHTML  //Consulto el elemento
 console.log(titulo)
 
 document.getElementById("titulo").innerHTML = "<h2>Village Cines</h2>" //Reemplazo el contenido (asigno otro valor en este caso)
+document.getElementById("titulo").innerHTML += "<h4>Películas</h4>" //Agrego otro elemento
 
-const info = document.getElementById("info")
+const info = document.getElementById("info") //Accedo a mi otro elemento div
 
-info.classList.add("row", "row-cols-1", "row-cols-md-3", "g-4")
+info.classList.add("row", "row-cols-1", "row-cols-md-3", "g-4") //Creo el atributo class y le agrego clases de Bootstrap
 console.log(info)
 
-peliculas.forEach(pelicula => {
+peliculas.forEach(peli => {  //Hago un recorrido de mi array peliculas y accedo a la propiedad de cada objeto
     const fila = document.createElement('div')  //Creo un div
-    fila.classList("col")
+    fila.classList.add("col")
     fila.innerHTML = `
     <div class="card h-100">
-        <img src="..." class="card-img-top" alt="...">
+        <img src="img/${peli.img}" class="card-img-top" alt="...">
         <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <h5 class="card-title">${peli.nombre}</h5>
+        <p class="card-text">${peli.idioma}</p>
     </div>
     `
+    info.appendChild(fila)
 })
 
+const navegacion = document.getElementById("lista")
+const item = document.querySelector("#lista .nav-item") //Accedo al primer elemento que cumpla con lo que especifico dentro de los paréntesis. Utilizo los selectores CSS
+navegacion.removeChild(item)  //Remueve el elemento hijo de navegacion
+
+//Creo una tabla y le agrego las películas
+
+const listaPeliculas = document.querySelectorAll("#tabla tbody")
+console.log(listaPeliculas)
+
+peliculas.map(pel => {
+    const listaPeliculas = document.querySelector("#tabla tbody")
+    const row = document.createElement('tr')
+    row.innerHTML = `
+    <td>${pel.id}</td>
+    <td>${pel.nombre}</td>
+    <td>${pel.precio}</td>
+    `
+    listaPeliculas.appendChild(row)
+})

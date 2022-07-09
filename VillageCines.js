@@ -183,3 +183,4 @@ peliculas.map(pel => {
     `
     listaPeliculas.appendChild(row)
 })
+

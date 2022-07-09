@@ -706,3 +706,67 @@ divPersonas.removeChild(document.getElementById('persona2')) //forma 2. remueve 
 //Es mejor utilizar esta forma ya que los productos no van a tener id para que no sea pesado. Consulto por el padre y elimino por la posición.
 */
 //+= agrega contenido; = lo reemplaza porque es un operador de asignación
+
+//Eventos
+
+const boton1 = document.getElementById('boton1') //Selecciono un elemento del DOM
+
+boton1.addEventListener('click', () => {       //Ejecuto el método addEventListener y ya tengo mi evento creado al hacer click sobre el elemento
+    console.log("input1.value") //consulto el valor del input. Opción más usada. Puedo crear muchos eventos
+})
+
+//dblclick: se ejecuta cuando hago doble click
+//click: se ejecuta cuando hago un solo click
+
+//Opción 2 para hacer eventos: se accede por propiedad. Un onclick sirve para generar solamente 1 evento, por ser propiedad se reasigna.
+
+boton1.onclick = () => {
+    console.log("Hola coders desde onclick!")
+}
+
+//Evento Input: cada vez que el usuario ingrese info se ejecuta. Facilita hacer una búsqueda al usuario. (PRE-BÚSQUEDA)
+const input1 = document.getElementById('input1')
+
+input1.addEventListener('input', () => {
+    console.log(input1.value) //Ejecuto todo lo que ingrese el usuario. Consulto el valor del input c/vez que el usuario me agregue información
+})
+
+
+const inputColor = document.getElementById('inputColor')
+
+inputColor.addEventListener('input', () => {
+    console.log(inputColor.value) //Ingresa un color
+    document.body.style.backgroundColor = inputColor.value //Llamo directamente a la etiqueta body. Agrego estilos de CSS
+})
+
+//Evento Change: hace una búsqueda cuando el usuario da enter o hace click fuera del campo
+
+input1.addEventListener('change', () => {
+    console.log(input1.value) 
+})
+
+//Hice lo mismo 3 veces con el evento click, input y change. Lo mismo  que hace GOOGLE. Consulto info de un input. Tiene que ver con la forma de búsqueda del usuario. Un input debe tener los 3 por la experiencia de usuario.
+
+//Creo un objeto
+class User {
+constructor (username, email, password){
+    this.username = username
+    this.email = email
+    this.password = password
+}
+}
+
+const formulario = document.getElementById('idForm')
+const usuarios = []
+
+formulario.addEventListener('submit', (event) => {
+    event.preventDefault()  //Prevengo el comportamiento por defecto del formulario
+    let username = document.getElementById('exampleInputUser1').value
+    let email = document.getElementById('exampleInputEmail1').value
+    let password = document.getElementById('exampleInputPassword1').value
+const user = new User(username, email, password)
+console.log(user)
+usuarios.push(user) //Mis usuarios van a estar guardados dentro del array
+console.log(usuarios)
+formulario.reset() //Limpio el formulario
+}) //Le pedí a mi usuario que ingrese info y la guardé en un objeto

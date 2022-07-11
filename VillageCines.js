@@ -128,7 +128,7 @@ console.table(precioTotal())
 */
 
 //Entrega DOM
-
+/*
 const peliculas = [
     { id: 1, nombre: "THOR: AMOR Y TRUENO", idioma: "subtitulado", img: "thor.webp", precio: 1040 },
     { id: 2, nombre: "MINIONS: NACE UN VILLANO", idioma: "español", img: "minions.jpg", precio: 1040 },
@@ -183,4 +183,55 @@ peliculas.map(pel => {
     `
     listaPeliculas.appendChild(row)
 })
+*/
 
+
+//Eventos  (Librería)
+
+class Producto {
+    constructor(nombre, editorial, precio, stock) {
+        this.nombre = nombre
+        this.editorial = editorial
+        this.precio = precio
+        this.stock = stock
+    }
+}
+
+const productos = []
+
+//const form = document.getElementById('idForm2') Pido datos al DOM
+
+const form = document.querySelector('#idForm2') //Puedo consultar por #id .class o <tag>
+const divProductos = document.querySelector('#divProductos') //Lo guardo en una variable porque lo voy a estar llamando varias veces
+document.querySelector('#botonProductos') //No lo guardo en una variable porque no lo necesito para nada más que agregarle un evento
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault()
+    let nombre = document.getElementById('idNombre').value
+    let editorial = document.getElementById('idEditorial').value
+    let precio = parseFloat(document.getElementById('idPrecio').value)
+    let stock = parseInt(document.getElementById('idStock').value)
+
+
+    const producto = new Producto(nombre, editorial, precio, stock)
+    productos.push(producto)
+    console.log(productos)
+
+    form.reset()
+})
+
+document.querySelector('#botonProductos').addEventListener('click', () => {  //Acá consulto el botón y le agrego el evento directamente
+    productos.forEach(producto => {
+        divProductos.innerHTML += `
+    <div class="card" style="width: 18rem; margin: 3px;">
+        <div class="card-body">
+        <h5 class="card-title">${producto.nombre}</h5>
+        <p class="card-text">Marca: ${producto.editorial}</p>
+        <p class="card-text">$${producto.precio}</p>
+        <p class="card-text">Stock: ${producto.stock}</p>
+        <button class ="btn btn-danger">Eliminar</button>
+        </div>
+    </div>
+    `
+    })
+})

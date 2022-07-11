@@ -708,6 +708,7 @@ divPersonas.removeChild(document.getElementById('persona2')) //forma 2. remueve 
 //+= agrega contenido; = lo reemplaza porque es un operador de asignación
 
 //Eventos
+/*
 
 const boton1 = document.getElementById('boton1') //Selecciono un elemento del DOM
 
@@ -770,3 +771,4 @@ usuarios.push(user) //Mis usuarios van a estar guardados dentro del array
 console.log(usuarios)
 formulario.reset() //Limpio el formulario
 }) //Le pedí a mi usuario que ingrese info y la guardé en un objeto
+*/

@@ -25,7 +25,7 @@
 </div>
 <div id="divPersonas"></div>
 -->
-
+<!--  
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Navbar</a>
@@ -96,8 +96,8 @@
                 <label for="exampleInputEmail1" class="form-label">Email address</label>
                 <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                 <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-              </div>
-            
+            </div>
+
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Password</label>
                 <input type="password" class="form-control" id="exampleInputPassword1">
@@ -105,6 +105,33 @@
             <button type="submit" class="btn btn-primary">Crear usuario</button>
         </form>
     </div>
+-->
+    <div class="container my-5">
+        <form id="idForm2">
+            <div class="mb-3">
+                <label for="idNombre" class="form-label">Nombre del libro</label>
+                <input type="text" class="form-control" id="idNombre">
+            </div>
+            <div class="mb-3">
+                <label for="idEditorial" class="form-label">Editorial</label>
+                <input type="text" class="form-control" id="idEditorial">
+            </div>
+            <div class="mb-3">
+                <label for="idPrecio" class="form-label">Precio</label>
+                <input type="number" class="form-control" id="idPrecio">
+            </div>
+            <div class="mb-3">
+                <label for="idStock" class="form-label">Stock</label>
+                <input type="number" class="form-control" id="idStock">
+            </div>
+            <button type="submit" class="btn btn-dark">Crear producto</button>
+        </form>
+    </div>
+    <div class="container">
+        <button id="botonProductos" class="btn btn-secondary">Mostrar productos</button>
+    </div>
+
+    <div id="divProductos" class="container row"></div>
 
     <script type="module" src="VillageCines.js"></script>
     <script type="module" src="Pokemon.js"></script>

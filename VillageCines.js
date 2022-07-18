@@ -187,7 +187,7 @@ peliculas.map(pel => {
 
 
 //Eventos  (Librería)
-
+/*
 class Producto {
     constructor(nombre, editorial, precio, stock) {
         this.nombre = nombre
@@ -235,3 +235,4 @@ document.querySelector('#botonProductos').addEventListener('click', () => {  //A
     `
     })
 })
+*/

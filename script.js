@@ -772,3 +772,85 @@ console.log(usuarios)
 formulario.reset() //Limpio el formulario
 }) //Le pedí a mi usuario que ingrese info y la guardé en un objeto
 */
+
+//Storage
+/*
+const botonDarkMode = document.getElementById('botonDarkMode')
+const botonLightMode = document.getElementById('botonLightMode')
+console.log(localStorage.getItem('darkMode')) //no existe la key, da null
+
+//Consultar el darkMode. Guardo la preferencia del usuario de esta manera 
+let darkMode
+
+if (localStorage.getItem('darkMode')) {//consulto si existe la variable, algo llamado darkMode
+    darkMode = localStorage.getItem('darkMode')
+} else {
+    localStorage.setItem('darkMode', 'light') //si no existe, la creo (puede ser un usuario que ingresa por primera vez o que haya eliminado historial)
+}
+
+if (darkMode == 'dark') {
+    document.body.classList.add('darkMode')
+}
+
+//Modificar el localStorage
+botonDarkMode.addEventListener('click', () => {
+    //document.body.style.backgroundColor = "#000000"   (Desde JS se puede hacer el dark mode pero convien hacerlo con css)
+    //document.body.style.color = "#ffffff"
+    document.body.classList.add('darkMode')  //Cada vez que hago click en el boton agrego la clase desde JS (los estilos están aplicados desde css)
+    localStorage.setItem('darkMode', "dark")
+})
+
+botonLightMode.addEventListener('click', () => {
+    //document.body.style.backgroundColor = "#ffffff"
+    //document.body.style.color = "#000000"
+    document.body.classList.remove('darkMode') //Quito la clase
+    localStorage.setItem('darkMode', "light")
+})
+
+//Las dos formas de almacenamiento son: localStorage (guarda de forma indefinida) y sessionStorage (guarda hasta que se recarga la pág web o se limpia caché)
+*/
+
+//JSON
+
+class Persona {
+    constructor(id, nombre, apellido, edad, altura, peso){
+        this.id = id
+        this.nombre = nombre
+        this.apellido = apellido
+        this.edad = edad
+        this.altura = altura
+        this.peso = peso
+    }
+}
+
+const persona1 = new Persona(1, "Pancho", "Pérez", 20, 170, 80)
+const persona2 = new Persona(2, "Pancha", "Pérez", 30, 180, 70)
+const persona3 = new Persona(3, "Panchito", "Pérez", 35, 185, 76)
+
+const personas = [persona1, persona2, persona3]
+
+//convertí los datos y no veo [object Object]. Los pasé a formato JSON
+
+localStorage.setItem('personas', JSON.stringify(personas)) //Stringify: paso de obj a JSON
+
+//Hago la conversión a objeto cuando los consulto
+
+console.log(JSON.parse(localStorage.getItem('personas'))) //Parse: paso de JSON a objeto
+
+/*
+Puedo crear nuevos objetos de la clase Persona con los datos consultados para no perder los métodos y referencias a clases
+Es una simulación de base de datos
+
+const personas2 = []
+
+const personasParseadas = JSON.parse(localStorage.getItem('personas'))
+
+personasParseadas.forEach(persona => {
+    const pesronaNueva = new Persona (persona.id,persona.nombre, persona.apellido,
+        persona.edad, persona.altura, persona.peso)
+
+        personas2.push(personaNueva)
+        console.log(personas2)
+    
+});
+*/

@@ -5,6 +5,14 @@ main {
     align-items: center;
 }
 
+.boton {
+    text-decoration: none;
+}
+
+.section0 {
+    border: white solid 1rem;
+}
+
 .section1 {
     background-color: rgb(250, 250, 250, 0.2);
     padding: 20px;

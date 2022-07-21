@@ -1,4 +1,4 @@
-//Variables
+//Variables del jueguito
 let tarjetasDestapadas = 0
 let tarjeta1 = null
 let tarjeta2 = null
@@ -26,7 +26,7 @@ function contarTiempo() {
   tiempoRegresivoId = setInterval(() => {
     timer--
     mostrarTiempo.innerHTML = `Tiempo: ${timer} segundos`
-    //Para detener el tiempo y no sea infinito
+    //Para detener el tiempo y que no sea infinito
     if (timer == 0) {
       clearInterval(tiempoRegresivoId)
       bloquearTarjetas()
@@ -57,15 +57,20 @@ function show(id) {
   console.log(tarjetasDestapadas)
 
   if (tarjetasDestapadas == 1) {
+
     //Mostrar primer número
+
     tarjeta1 = document.getElementById(id)
     primerResultado = numbers[id]
     tarjeta1.innerHTML = primerResultado
 
     //Deshabilitar el primer botón
+
     tarjeta1.disabled = true
   } else if (tarjetasDestapadas == 2) {
+
     //Mostrar segundo número
+
     tarjeta2 = document.getElementById(id)
     segundoResultado = numbers[id]
     tarjeta2.innerHTML = segundoResultado
@@ -73,15 +78,20 @@ function show(id) {
     //Deshabilitar el segundo botón
     tarjeta2.disabled = true
 
+
     //Incrementar movimientos
+
     movimientos++
     mostrarMovimientos.innerHTML = `Movimientos: ${movimientos}`
 
     if (primerResultado == segundoResultado) {
+
       //Llevo a 0 el contador de tarjetas destapadas
+
       tarjetasDestapadas = 0
 
       //Aumentar aciertos
+
       aciertos++
       mostrarAciertos.innerHTML = `Aciertos: ${aciertos}`
 
@@ -93,7 +103,9 @@ function show(id) {
       }
 
     } else {
+
       //Mostrar momentáneamente valores y volver a ocultar
+
       setTimeout(() => {
         tarjeta1.innerHTML = ' '
         tarjeta2.innerHTML = ' '
@@ -104,3 +116,55 @@ function show(id) {
     }
   }
 }
+
+
+//Creo un objeto Usuario
+
+class User {
+  constructor(id, username, password) {
+      this.id = id
+      this.username = username
+      this.password = password
+  }
+}
+
+const formulario = document.getElementById('idForm')
+const usuarios = []
+let id = 1;
+
+
+formulario.addEventListener('submit', (event) => {
+  event.preventDefault() //Prevengo el comportamiento por defecto del formulario
+  let username = document.getElementById('exampleInputUser1').value
+  let password = document.getElementById('exampleInputPassword1').value
+  const user = new User(id, username, password)
+  usuarios.push(user)//Mis usuarios van a estar guardados dentro del array
+  console.log(usuarios)
+  formulario.reset()//Limpio el formulario
+  id++
+})//Le pedí a mi usuario que ingrese info y la guardé en un objeto
+
+
+//JSON
+
+class Jugador {
+  constructor(id, nickname) {
+    this.id = id
+    this.nickname = nickname
+    this.puntaje = 0 //Puntaje inicial, no se pasa como param
+  }
+}
+
+const jugador1 = new Jugador(1, "Lala")
+const jugador2 = new Jugador(2, "Lalo")
+const jugador3 = new Jugador(3, "Lula")
+
+const jugadores = [jugador1, jugador2, jugador3]
+
+//convertí los datos y no veo [object Object]. Los pasé a formato JSON
+
+localStorage.setItem('jugadores', JSON.stringify(jugadores)) //Stringify: paso de obj a JSON
+
+//Hago la conversión a objeto cuando los consulto
+
+console.log(JSON.parse(localStorage.getItem('jugadores'))) //Parse: paso de JSON a objeto

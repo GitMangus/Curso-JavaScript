@@ -26,11 +26,14 @@ function contarTiempo() {
   tiempoRegresivoId = setInterval(() => {
     timer--
     mostrarTiempo.innerHTML = `Tiempo: ${timer} segundos`
+
     //Para detener el tiempo y que no sea infinito
-    if (timer == 0) {
+    /*if (timer == 0) {
       clearInterval(tiempoRegresivoId)
       bloquearTarjetas()
-    }
+    }*/
+    timer == 0 && clearInterval(tiempoRegresivoId) && bloquearTarjetas()  //Operador lógico AND
+    
   }, 1000)
 }
 
@@ -132,7 +135,7 @@ const formulario = document.getElementById('idForm')
 const usuarios = []
 let id = 1;
 
-
+/*
 formulario.addEventListener('submit', (event) => {
   event.preventDefault() //Prevengo el comportamiento por defecto del formulario
   let username = document.getElementById('exampleInputUser1').value
@@ -143,7 +146,7 @@ formulario.addEventListener('submit', (event) => {
   formulario.reset()//Limpio el formulario
   id++
 })//Le pedí a mi usuario que ingrese info y la guardé en un objeto
-
+*/
 
 //JSON
 
@@ -157,9 +160,27 @@ class Jugador {
 
 const jugador1 = new Jugador(1, "Lala")
 const jugador2 = new Jugador(2, "Lalo")
-const jugador3 = new Jugador(3, "Lula")
 
-const jugadores = [jugador1, jugador2, jugador3]
+const jugadores = [jugador1, jugador2]
+
+//Desestructuración
+
+let {nickname,puntaje} = jugador1
+console.log(nickname)
+console.log(puntaje)
+
+//Spread
+
+const puntajeJugador1 = [1,2,3]
+const puntajeJugador2 = [4,5,6]
+
+function suma(numero1, numero2, numero3){
+    const resultado = numero1 + numero2 + numero3
+    console.log(resultado)
+}
+
+suma(...puntajeJugador1) //esto es igual a decir suma(lista1[0], lista1[1], lista1[2]) suma 1+2+3
+
 
 //convertí los datos y no veo [object Object]. Los pasé a formato JSON
 

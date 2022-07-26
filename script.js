@@ -33,7 +33,7 @@ function contarTiempo() {
       bloquearTarjetas()
     }*/
     timer == 0 && clearInterval(tiempoRegresivoId) && bloquearTarjetas()  //Operador lógico AND
-    
+
   }, 1000)
 }
 
@@ -125,9 +125,9 @@ function show(id) {
 
 class User {
   constructor(id, username, password) {
-      this.id = id
-      this.username = username
-      this.password = password
+    this.id = id
+    this.username = username
+    this.password = password
   }
 }
 
@@ -165,18 +165,18 @@ const jugadores = [jugador1, jugador2]
 
 //Desestructuración
 
-let {nickname,puntaje} = jugador1
+let { nickname, puntaje } = jugador1
 console.log(nickname)
 console.log(puntaje)
 
 //Spread
 
-const puntajeJugador1 = [1,2,3]
-const puntajeJugador2 = [4,5,6]
+const puntajeJugador1 = [1, 2, 3]
+const puntajeJugador2 = [4, 5, 6]
 
-function suma(numero1, numero2, numero3){
-    const resultado = numero1 + numero2 + numero3
-    console.log(resultado)
+function suma(numero1, numero2, numero3) {
+  const resultado = numero1 + numero2 + numero3
+  console.log(resultado)
 }
 
 suma(...puntajeJugador1) //esto es igual a decir suma(lista1[0], lista1[1], lista1[2]) suma 1+2+3
@@ -189,3 +189,40 @@ localStorage.setItem('jugadores', JSON.stringify(jugadores)) //Stringify: paso d
 //Hago la conversión a objeto cuando los consulto
 
 console.log(JSON.parse(localStorage.getItem('jugadores'))) //Parse: paso de JSON a objeto
+
+//Librerías
+
+const loginButton = document.getElementById('loginButton')
+
+loginButton.addEventListener('click', () => {
+  Swal.fire({
+    title: '¿Quieres guardar los cambios?',
+    showDenyButton: true,
+    showCancelButton: true,
+    confirmButtonText: 'Guardar',
+    denyButtonText: `No guardar`,
+  }).then((result) => {
+    /* Read more about isConfirmed, isDenied below */
+    if (result.isConfirmed) {
+      Swal.fire('¡Guardado!', '', 'success')
+    } else if (result.isDenied) {
+      Swal.fire('Los cambios no han sido guardados', '', 'info')
+    }
+  })
+})
+
+Toastify({
+  text: "${this.nickname} está online",
+  duration: 3000,
+  //destination: "https://github.com/apvarun/toastify-js",
+  //newWindow: true,
+  close: true,
+  gravity: "top", // `top` or `bottom`
+  position: "right", // `left`, `center` or `right`
+  stopOnFocus: true, // Prevents dismissing of toast on hover
+  style: {
+    background: "linear-gradient(to right, #00b09b, #96c93d)",
+  },
+  onClick: function(){} // Callback after click
+}).showToast();
+

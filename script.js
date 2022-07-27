@@ -135,7 +135,7 @@ const formulario = document.getElementById('idForm')
 const usuarios = []
 let id = 1;
 
-/*
+
 formulario.addEventListener('submit', (event) => {
   event.preventDefault() //Prevengo el comportamiento por defecto del formulario
   let username = document.getElementById('exampleInputUser1').value
@@ -146,7 +146,7 @@ formulario.addEventListener('submit', (event) => {
   formulario.reset()//Limpio el formulario
   id++
 })//Le pedí a mi usuario que ingrese info y la guardé en un objeto
-*/
+
 
 //JSON
 
@@ -212,17 +212,9 @@ loginButton.addEventListener('click', () => {
 })
 
 Toastify({
-  text: "${this.nickname} está online",
-  duration: 3000,
-  //destination: "https://github.com/apvarun/toastify-js",
-  //newWindow: true,
-  close: true,
-  gravity: "top", // `top` or `bottom`
-  position: "right", // `left`, `center` or `right`
-  stopOnFocus: true, // Prevents dismissing of toast on hover
-  style: {
-    background: "linear-gradient(to right, #00b09b, #96c93d)",
-  },
-  onClick: function(){} // Callback after click
+  text: "Haz login y comienza a jugar",
+  duration: 5000,
+  gravity: "bottom",
+  position: "right"
 }).showToast();
 

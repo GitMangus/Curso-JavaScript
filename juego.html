@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://bootswatch.com/5/quartz/bootstrap.min.css">
+ 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -15,190 +15,176 @@
 </head>
 
 <body>
-  <main class="sections">
-    <div class="card text-white bg-secondary mb-3 player" style="max-width: 20rem;">
-      <div class="card-body">
-        <h4 class="card-title">JUGADOR 1</h4>
-        <p class="card-text" id="aciertos1">Aciertos: 0</p>
-        <p class="card-text" id="movimientos1">Movimientos: 0</p>
-        <p class="card-text" id="tiempoRestante" class="estadisticas">Tiempo: 30 seg</p>
+  <div class="wrapper">
+    <ul class="cards">
+      <li class="card">
+        <div class="view front-view">
+          <span class="material-icons">star</span>
+        </div>
+        <div class="view back-view">
+          <img src="./images/1.png" alt="1">
+        </div>
+      </li>
+      <li class="card">
+        <div class="view front-view">
+          <span class="material-icons">star</span>
+        </div>
+        <div class="view back-view">
+          <img src="./images/2.png" alt="2">
+        </div>
+      </li>
+      <li class="card">
+        <div class="view front-view">
+          <span class="material-icons">star</span>
+        </div>
+        <div class="view back-view">
+          <img src="./images/3.png" alt="3">
+        </div>
+      </li>
+      <li class="card">
+        <div class="view front-view">
+          <span class="material-icons">star</span>
+        </div>
+        <div class="view back-view">
+          <img src="./images/4.png" alt="4">
+        </div>
+      </li>
+      <li class="card">
+        <div class="view front-view">
+          <span class="material-icons">star</span>
+        </div>
+        <div class="view back-view">
+          <img src="./images/5.png" alt="5">
+        </div>
+      </li>
+      <li class="card">
+        <div class="view front-view">
+          <span class="material-icons">star</span>
+        </div>
+        <div class="view back-view">
+          <img src="./images/6.png" alt="6">
+        </div>
+      </li>
+      <li class="card">
+        <div class="view front-view">
+          <span class="material-icons">star</span>
+        </div>
+        <div class="view back-view">
+          <img src="./images/7.png" alt="7">
+        </div>
+      </li>
+      <li class="card">
+        <div class="view front-view">
+          <span class="material-icons">star</span>
+        </div>
+        <div class="view back-view">
+          <img src="./images/8.png" alt="8">
+        </div>
+      </li>
+      <li class="card">
+        <div class="view front-view">
+          <span class="material-icons">star</span>
+        </div>
+        <div class="view back-view">
+          <img src="./images/9.png" alt="9">
+        </div>
+      </li>
+      <li class="card">
+        <div class="view front-view">
+          <span class="material-icons">star</span>
+        </div>
+        <div class="view back-view">
+          <img src="./images/10.png" alt="10">
+        </div>
+      </li>
+      <li class="card">
+        <div class="view front-view">
+          <span class="material-icons">star</span>
+        </div>
+        <div class="view back-view">
+          <img src="./images/1.png" alt="1">
+        </div>
+      </li>
+      <li class="card">
+        <div class="view front-view">
+          <span class="material-icons">star</span>
+        </div>
+        <div class="view back-view">
+          <img src="./images/2.png" alt="2">
+        </div>
+      </li>
+      <li class="card">
+        <div class="view front-view">
+          <span class="material-icons">star</span>
+        </div>
+        <div class="view back-view">
+          <img src="./images/3.png" alt="3">
+        </div>
+      </li>
+      <li class="card">
+        <div class="view front-view">
+          <span class="material-icons">star</span>
+        </div>
+        <div class="view back-view">
+          <img src="./images/4.png" alt="4">
+        </div>
+      </li>
+      <li class="card">
+        <div class="view front-view">
+          <span class="material-icons">star</span>
+        </div>
+        <div class="view back-view">
+          <img src="./images/5.png" alt="5">
+        </div>
+      </li>
+      <li class="card">
+        <div class="view front-view">
+          <span class="material-icons">star</span>
+        </div>
+        <div class="view back-view">
+          <img src="./images/6.png" alt="6">
+        </div>
+      </li>
+      <li class="card">
+        <div class="view front-view">
+          <span class="material-icons">star</span>
+        </div>
+        <div class="view back-view">
+          <img src="./images/7.png" alt="7">
+        </div>
+      </li>
+      <li class="card">
+        <div class="view front-view">
+          <span class="material-icons">star</span>
+        </div>
+        <div class="view back-view">
+          <img src="./images/8.png" alt="8">
+        </div>
+      </li>
+      <li class="card">
+        <div class="view front-view">
+          <span class="material-icons">star</span>
+        </div>
+        <div class="view back-view">
+          <img src="./images/9.png" alt="9">
+        </div>
+      </li>
+      <li class="card">
+        <div class="view front-view">
+          <span class="material-icons">star</span>
+        </div>
+        <div class="view back-view">
+          <img src="./images/10.png" alt="10">
+        </div>
+      </li>
+      
+      <div class="details">
+        <p class="time">Tiempo: <span><b>40</b>seg</span></p>
+        <p class="flips">Movimientos: <span><b>0</b></span></p>
+        <button>Volver a empezar</button>
       </div>
-    </div>
-
-    <div class="board">
-      <ul class="cards">
-        <li class="playingCard">
-          <div class="view front-view">
-            <span class="material-icons">star</span>
-          </div>
-          <div class="view back-view">
-            <img src="./images/1.png" alt="1">
-          </div>
-        </li>
-        <li class="playingCard">
-          <div class="view front-view">
-            <span class="material-icons">star</span>
-          </div>
-          <div class="view back-view">
-            <img src="./images/2.png" alt="2">
-          </div>
-        </li>
-        <li class="playingCard">
-          <div class="view front-view">
-            <span class="material-icons">star</span>
-          </div>
-          <div class="view back-view">
-            <img src="./images/3.png" alt="3">
-          </div>
-        </li>
-        <li class="playingCard">
-          <div class="view front-view">
-            <span class="material-icons">star</span>
-          </div>
-          <div class="view back-view">
-            <img src="./images/4.png" alt="4">
-          </div>
-        </li>
-        <li class="playingCard">
-          <div class="view front-view">
-            <span class="material-icons">star</span>
-          </div>
-          <div class="view back-view">
-            <img src="./images/5.png" alt="5">
-          </div>
-        </li>
-        <li class="playingCard">
-          <div class="view front-view">
-            <span class="material-icons">star</span>
-          </div>
-          <div class="view back-view">
-            <img src="./images/6.png" alt="6">
-          </div>
-        </li>
-        <li class="playingCard">
-          <div class="view front-view">
-            <span class="material-icons">star</span>
-          </div>
-          <div class="view back-view">
-            <img src="./images/7.png" alt="7">
-          </div>
-        </li>
-        <li class="playingCard">
-          <div class="view front-view">
-            <span class="material-icons">star</span>
-          </div>
-          <div class="view back-view">
-            <img src="./images/8.png" alt="8">
-          </div>
-        </li>
-        <li class="playingCard">
-          <div class="view front-view">
-            <span class="material-icons">star</span>
-          </div>
-          <div class="view back-view">
-            <img src="./images/9.png" alt="9">
-          </div>
-        </li>
-        <li class="playingCard">
-          <div class="view front-view">
-            <span class="material-icons">star</span>
-          </div>
-          <div class="view back-view">
-            <img src="./images/10.png" alt="10">
-          </div>
-        </li>
-        <li class="playingCard">
-          <div class="view front-view">
-            <span class="material-icons">star</span>
-          </div>
-          <div class="view back-view">
-            <img src="./images/1.png" alt="1">
-          </div>
-        </li>
-        <li class="playingCard">
-          <div class="view front-view">
-            <span class="material-icons">star</span>
-          </div>
-          <div class="view back-view">
-            <img src="./images/2.png" alt="2">
-          </div>
-        </li>
-        <li class="playingCard">
-          <div class="view front-view">
-            <span class="material-icons">star</span>
-          </div>
-          <div class="view back-view">
-            <img src="./images/3.png" alt="3">
-          </div>
-        </li>
-        <li class="playingCard">
-          <div class="view front-view">
-            <span class="material-icons">star</span>
-          </div>
-          <div class="view back-view">
-            <img src="./images/4.png" alt="4">
-          </div>
-        </li>
-        <li class="playingCard">
-          <div class="view front-view">
-            <span class="material-icons">star</span>
-          </div>
-          <div class="view back-view">
-            <img src="./images/5.png" alt="5">
-          </div>
-        </li>
-        <li class="playingCard">
-          <div class="view front-view">
-            <span class="material-icons">star</span>
-          </div>
-          <div class="view back-view">
-            <img src="./images/6.png" alt="6">
-          </div>
-        </li>
-        <li class="playingCard">
-          <div class="view front-view">
-            <span class="material-icons">star</span>
-          </div>
-          <div class="view back-view">
-            <img src="./images/7.png" alt="7">
-          </div>
-        </li>
-        <li class="playingCard">
-          <div class="view front-view">
-            <span class="material-icons">star</span>
-          </div>
-          <div class="view back-view">
-            <img src="./images/8.png" alt="8">
-          </div>
-        </li>
-        <li class="playingCard">
-          <div class="view front-view">
-            <span class="material-icons">star</span>
-          </div>
-          <div class="view back-view">
-            <img src="./images/9.png" alt="9">
-          </div>
-        </li>
-        <li class="playingCard">
-          <div class="view front-view">
-            <span class="material-icons">star</span>
-          </div>
-          <div class="view back-view">
-            <img src="./images/10.png" alt="10">
-          </div>
-        </li>
-      </ul>
-    </div>
-
-    <div class="card text-white bg-secondary mb-3 player" style="max-width: 20rem;">
-      <div class="card-body">
-        <h4 class="card-title">JUGADOR 2</h4>
-        <p class="card-text" id="aciertos1">Aciertos: 0</p>
-        <p class="card-text" id="movimientos1">Movimientos: 0</p>
-        <p class="card-text" id="tiempoRestante" class="estadisticas">Tiempo: 30 seg</p>
-      </div>
-    </div>
-  </main>
+    </ul>
+  </div>
 
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
   <script src="script.js"></script>

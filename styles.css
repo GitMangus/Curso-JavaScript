@@ -41,7 +41,29 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: #f3969a;
+  background: rgb(51,164,242);
+  background: linear-gradient(90deg, rgba(51,164,242,1) 0%, rgba(252,70,107,1) 100%); 
+}
+
+.player{
+  height: 120px;
+  width: 200px;
+  background-color: #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 0.3rem;
+  margin: 5rem;
+}
+
+.player_header {
+  font-size: 25px;
+  text-align: center;
+  margin: 1rem 0;
+  text-decoration: underline;
+}
+
+.player_text{
+  text-align: center;
+  margin: 1rem 0;
 }
 
 .wrapper {

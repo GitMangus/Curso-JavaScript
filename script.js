@@ -1,3 +1,5 @@
+//Alerta invitando a probar el juego
+
 Toastify({
     text: "Haz login y comienza a jugar",
     duration: 4000,
@@ -57,35 +59,22 @@ button.addEventListener('click', (e) => {
     console.log(data)
 }) 
 
+//Me redirecciona a la pág del juego
+
  button.addEventListener('click', () => { 
     
-    setTimeout( () => { //Asincronía
-         window.location.href = "juego.html";
-    }, 2000 );
+    setTimeout( () => { 
+         window.location.href = "juego.html"
+    }, 2000 ) //Asincronía cuyo tiempo en realidad va a depender de cada usuario
 }) 
 
-/* async function getUsers () {
+//Asincronía aplicada a una función
+
+async function getUsers () {
     const info = await fetch('./json/usuarios.json')
     const infoConv = await info.json()
     return infoConv
 }
 
 const array = getUsers()
-array.then(data => console.log(data)) */
-
-/* Toastify({
-    text: "Vamos a jugar",
-    duration: 3000,
-    close: true,
-    gravity: "top", // `top` or `bottom`
-    position: "left", // `left`, `center` or `right`
-    stopOnFocus: true, // Prevents dismissing of toast on hover
-    style: {
-      background: "linear-gradient(22deg, rgba(249,131,85,1) 0%, rgba(253,181,45,1) 99%)",
-    },
-    onClick: function(){} // Callback after click
-  }).showToast(); */
-
-
-
-
+array.then(data => console.log(data)) 
